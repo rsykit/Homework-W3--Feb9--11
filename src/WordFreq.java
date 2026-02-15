@@ -28,8 +28,6 @@ visit the store	700
 Write code to build a max‑heap from this array using the standard BUILD‑MAX‑HEAP procedure (bottom‑up heap construction).
 
 After running your buildMaxHeap function, print the array to show the heapified order.
-
-
  */
 
 public class WordFreq {
@@ -44,7 +42,7 @@ public class WordFreq {
     
     //Build a max-heap from an array of WordFreq objects
     public static void buildMaxHeap(WordFreq[] arr) {
-        int n = arr.length;
+        int n = arr.length; //initialize n as the number of elements in the array
         // Start from the last non-leaf node and heapify each node
         for (int i = n / 2 - 1; i >= 0; i--) {
             maxHeapify(arr, n, i);  
@@ -58,18 +56,18 @@ public class WordFreq {
         int right = 2 * i + 2; // right child index
         // If left child is larger than root
         if (left < n && arr[left].frequency > arr[largest].frequency) {
-            largest = left;
+            largest = left; //largest is left child
         }
         // If right child is larger than largest so far        
         if (right < n && arr[right].frequency > arr[largest].frequency) {
-            largest = right;
+            largest = right; //largest is right child
         }
         // If largest is not root, swap with largest and continue heapifying
         if (largest != i) {
-            WordFreq temp = arr[i];
-            arr[i] = arr[largest];
-            arr[largest] = temp;
-            maxHeapify(arr, n, largest);
+            WordFreq temp = arr[i]; //store the root in a temporary WordFreq variable
+            arr[i] = arr[largest]; //update the rooth with the largest
+            arr[largest] = temp; //update the largest with the temp
+            maxHeapify(arr, n, largest); //recursion
         }
     }
 }
