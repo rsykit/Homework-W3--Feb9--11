@@ -50,6 +50,26 @@ public class WordFreq {
             maxHeapify(arr, n, i);  
         }
     }
-    
 
+    // Heapify a subtree rooted with node i which is an index in arr[].
+    public static void maxHeapify(WordFreq[] arr, int n, int i) {
+        int largest = i; // Initialize largest as root
+        int left = 2 * i + 1; // left child index
+        int right = 2 * i + 2; // right child index
+        // If left child is larger than root
+        if (left < n && arr[left].frequency > arr[largest].frequency) {
+            largest = left;
+        }
+        // If right child is larger than largest so far        
+        if (right < n && arr[right].frequency > arr[largest].frequency) {
+            largest = right;
+        }
+        // If largest is not root, swap with largest and continue heapifying
+        if (largest != i) {
+            WordFreq temp = arr[i];
+            arr[i] = arr[largest];
+            arr[largest] = temp;
+            maxHeapify(arr, n, largest);
+        }
+    }
 }
