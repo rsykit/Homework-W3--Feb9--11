@@ -36,6 +36,12 @@ public class WordFreq {
     String word;
     int frequency;
 
+    // Constructor to initialize the WordFreq object
+    public WordFreq(String word, int frequency) {
+        this.word = word;
+        this.frequency = frequency;
+    }
+    
     
 
 }
