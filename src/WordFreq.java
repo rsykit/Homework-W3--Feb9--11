@@ -42,6 +42,14 @@ public class WordFreq {
         this.frequency = frequency;
     }
     
+    //Build a max-heap from an array of WordFreq objects
+    public static void buildMaxHeap(WordFreq[] arr) {
+        int n = arr.length;
+        // Start from the last non-leaf node and heapify each node
+        for (int i = n / 2 - 1; i >= 0; i--) {
+            maxHeapify(arr, n, i);  
+        }
+    }
     
 
 }
